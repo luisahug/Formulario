@@ -11,7 +11,7 @@
         <label for="nome">Nome:</label> <br>
         <input type="text" id="nome" name="nome"><br><br>
 
-        <label for="cpf">CPF:</label> <br>
+        <label for="cpf">CPF/CNPJ:</label> <br>
         <input type="text" id="cpf" name="cpf"><br><br>
 
         <label for="telefone">Telefone:</label> <br>
@@ -24,11 +24,12 @@
         <input type="email" id="email" name="email"><br><br>
 
         <br> 
-        <input type="button" value="Enviar" onclick="exibirDados()"></input>
+        <input type="button" id="btEnviar" value="Enviar" ></input>
     </form>
     <div id="dados"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="form-validacao.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
+    <script src="form-validacao.js"></script>    
 </body>
 </html>
