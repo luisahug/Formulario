@@ -14,10 +14,10 @@ $(document).ready(function(){
     $("input").blur(function(){
      if($(this).val() == "")
          {
-             $(this).css({"border-color" : "#F00", "padding": "2px"});
+             $(this).css({"border-color" : "#F00"});
          }
-    else {
-        $(this).css({"border-color" : "#000"});
+    else if ($(this).val() != ""){
+        $(this).css({"border-color" : "#0F0"});
          }
     });
 })
