@@ -36,6 +36,7 @@ $(document).ready(function(){
         }
     });
 
+    /*
     //alterar a cor do campo caso não esteja preenchido
     $("input").blur(function(){
         if($(this).val() == "")
@@ -46,8 +47,12 @@ $(document).ready(function(){
         {
             $(this).css({"border-color" : "#0F0"});
         }
-    });
-});
+    }); */
+
+    $("input").on("input blur", function(){
+        $(this).valid();
+    })
+}); 
 
 //validar se todos os campos "required" estão preenchidos e atendendo seus requisitos
  $("#cadastro").validate({
