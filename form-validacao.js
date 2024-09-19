@@ -1,18 +1,31 @@
 //exibir dados na tela após envio do formulário
 function exibirDados(){
-    var nome = $('#nome').val();
-    var cpf = $('#cpf').val();
-    var telefone = $('#telefone').val();
-    var endereco = $('#endereco').val();
-    var email = $('#email').val();
+    var nome = $("#nome").val();
+    var cpf = $("#cpf").val();
+    var telefone = $("#telefone").val();
+    var endereco = $("#endereco").val();
+    var email = $("#email").val();
 
-    $('#dados').html('<p></p>Nome: ' + nome + 
-        '<br>CPF: ' + cpf + '<br>Telefone: ' + telefone +
-        '<br>Endereço: ' + endereco + '<br>Email: ' + email)
-}
-//alterar a cor do campo conforme esta vazio ou não
+    $("#dados").html("<p></p>Nome: " + nome + 
+        "<br>CPF: " + cpf + "<br>Telefone: " + telefone +
+        "<br>Endereço: " + endereco + "<br>Email: " + email)
+};
+
 $(document).ready(function(){
-    var cont = 0;
+    //máscaras dos campos telefone e cpf
+    $("#telefone").mask("(00) 00000-0000");
+
+    $('#cpf').mask('000.000.000-00');
+
+    $("#cpf").on("input", function() {
+        if ($(this).val().length > 13) {
+            $(this).mask("00.000.000/0000-00");
+        } else {
+            $(this).mask("000.000.000-00");
+        }
+    });
+
+    //alterar a cor do campo caso não esteja preenchido
     $("input").blur(function(){
         if($(this).val() == "")
          {
@@ -23,7 +36,8 @@ $(document).ready(function(){
             $(this).css({"border-color" : "#0F0"});
         }
     });
-})
+});
+
 //validar se todos os campos "required" estão preenchidos e atendendo seus requisitos
  $("#cadastro").validate({
     submitHandler: function(form, event){
@@ -39,22 +53,22 @@ $(document).ready(function(){
     },
     messages: {
         nome: {
-            required: "Este campo é obrigatório"
+            required: " Este campo é obrigatório"
         },
         cpf: {
-            required: "Este campo é obrigatório",
-            minlength: "Informe um CPF/CNPJ válido"
+            required: " Este campo é obrigatório",
+            minlength: " Informe um CPF/CNPJ válido"
         },
         telefone: {
-            required: "Este campo é obrigatório",
-            minlength: "Informe um CPF/CNPJ válido"
+            required: " Este campo é obrigatório",
+            minlength: " Informe um telefone válido"
         },
         endereco: {
-            required: "Este campo é obrigatório"
+            required: " Este campo é obrigatório"
         },
         email: {
-            required: "Este campo é obrigatório",
-            email: "Informe um e-mail válido"
+            required: " Este campo é obrigatório",
+            email: " Informe um e-mail válido"
         }
     }
  });
