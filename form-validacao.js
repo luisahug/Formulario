@@ -29,7 +29,7 @@ $(document).ready(function(){
     $('#cpf').mask('000.000.000-00');
 
     $("#cpf").on("input", function() {
-        if ($(this).val().length > 14) {
+        if ($(this).val().length >= 13) {
             $(this).mask("00.000.000/0000-00");
         } else {
             $(this).mask("000.000.000-00");
