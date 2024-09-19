@@ -6,9 +6,20 @@ function exibirDados(){
     var endereco = $("#endereco").val();
     var email = $("#email").val();
 
-    $("#dados").html("<p></p>Nome: " + nome + 
-        "<br>CPF: " + cpf + "<br>Telefone: " + telefone +
-        "<br>Endereço: " + endereco + "<br>Email: " + email)
+    $("#dados").html(`
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <h4>Dados Enviados:</h4>
+                    <p><strong>Nome:</strong> ${nome}</p>
+                    <p><strong>CPF:</strong> ${cpf}</p>
+                    <p><strong>Telefone:</strong> ${telefone}</p>
+                    <p><strong>Endereço:</strong> ${endereco}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                </div>
+            </div>
+        </div>
+    `);
 };
 
 $(document).ready(function(){
