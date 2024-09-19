@@ -26,16 +26,9 @@ $(document).ready(function(){
     });
 
     //alterar a cor do campo caso não esteja preenchido
-    $("input").blur(function(){
-        if($(this).val() == "")
-         {
-             $(this).css({"border-color" : "#F00"});
-         }
-        else if ($(this).val() != "" && $(this).val() !="Enviar")
-        {
-            $(this).css({"border-color" : "#0F0"});
-        }
-    });
+    $("input").on("input blur", function(){
+        $(this).valid();
+    })
 });
 
 //validar se todos os campos "required" estão preenchidos e atendendo seus requisitos
