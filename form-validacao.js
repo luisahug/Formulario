@@ -39,6 +39,7 @@ $(document).ready(function(){
     $("input").on("input blur", function(){
         $(this).valid();
     })
+
 }); 
 
 //validar se todos os campos "required" estão preenchidos e atendendo seus requisitos
@@ -49,29 +50,45 @@ $(document).ready(function(){
     },
     errorPlacement: function(error, element){
         element.css({"border-color" : "#F00"});
+        error.css({"margin-left": "10px"});
         error.insertAfter(element);
     },
     success: function(label, element){
         $(element).css({"border-color": "#0F0"});
+        label.addClass("valid").text("Ok!")
+    },
+    onkeyup: function(element) {
+        if (!$(element).valid()) {
+            $(element).css({"border-color": "#F00"}); // Se houver erro, borda vermelha
+        } else {
+            $(element).css({"border-color": "#0F0"}); // Se passar nos requisitos, borda verde
+        }
+    },
+    onfocusout: function(element) {
+        if (!$(element).valid()) {
+            $(element).css({"border-color": "#F00"}); // Se houver erro, borda vermelha
+        } else {
+            $(element).css({"border-color": "#0F0"}); // Se passar nos requisitos, borda verde
+        }
     },
     messages: {
         nome: {
-            required: " Este campo é obrigatório"
+            required: "Este campo é obrigatório"
         },
         cpf: {
-            required: " Este campo é obrigatório",
-            minlength: " Informe um CPF/CNPJ válido"
+            required: "Este campo é obrigatório",
+            minlength: "Informe um CPF/CNPJ válido"
         },
         telefone: {
-            required: " Este campo é obrigatório",
-            minlength: " Informe um telefone válido"
+            required: "Este campo é obrigatório",
+            minlength: "Informe um telefone válido"
         },
         endereco: {
-            required: " Este campo é obrigatório"
+            required: "Este campo é obrigatório"
         },
         email: {
-            required: " Este campo é obrigatório",
-            email: " Informe um e-mail válido"
+            required: "Este campo é obrigatório",
+            email: "Informe um e-mail válido"
         }
     }
  });
