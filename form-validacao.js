@@ -59,16 +59,16 @@ $(document).ready(function(){
     },
     onkeyup: function(element) {
         if (!$(element).valid()) {
-            $(element).css({"border-color": "#F00"}); // Se houver erro, borda vermelha
+            $(element).css({"border-color": "#F00"});
         } else {
-            $(element).css({"border-color": "#0F0"}); // Se passar nos requisitos, borda verde
+            $(element).css({"border-color": "#0F0"});
         }
     },
     onfocusout: function(element) {
         if (!$(element).valid()) {
-            $(element).css({"border-color": "#F00"}); // Se houver erro, borda vermelha
+            $(element).css({"border-color": "#F00"});
         } else {
-            $(element).css({"border-color": "#0F0"}); // Se passar nos requisitos, borda verde
+            $(element).css({"border-color": "#0F0"});
         }
     },
     messages: {
